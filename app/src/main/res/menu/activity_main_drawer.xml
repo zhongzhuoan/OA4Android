@@ -3,36 +3,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group >
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_head"
+            android:title="工作管理">
+            <menu>
+                <group
+                    android:checkableBehavior="single">
+
+                    <item
+                        android:id="@+id/nav_share"
+                        android:title="我的工作" />
+                    <item
+                        android:id="@+id/nav_send"
+                        android:title="团队成员动态" />
+                </group>
+            </menu>
+        </item>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="工作报告管理">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:id="@+id/nav_share2"
+                        android:title="工作报告上交情况" />
+                </group>
+            </menu>
+        </item>
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="公告管理">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:title="公告查看" />
+                </group>
+            </menu>
+        </item>
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="个人管理">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:title="个人信息设置" />
+                    <item
+                        android:title="同事信息列表" />
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="站内信管理">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:title="发送列表" />
+                    <item
+                        android:title="接收列表" />
+                </group>
+            </menu>
+        </item>
+        <item
+            android:title="目标管理">
+            <menu>
+                <group android:checkableBehavior="single">
+
+                    <item
+                        android:title="年度" />
+                    <item
+                        android:title="季度" />
+                    <item
+                        android:title="月度" />
+                    <item
+                        android:title="本周" />
+                </group>
+            </menu>
+        </item>
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>
