@@ -3,6 +3,7 @@ package org.android.an.oa4android
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -10,8 +11,28 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import org.android.an.oa4android.dummy.DummyContent
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(),
+        NavigationView.OnNavigationItemSelectedListener,
+        HomeFragment.OnFragmentInteractionListener,
+        TargetsFragment.OnListFragmentInteractionListener {
+    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+
+    }
+
+    override fun onFragmentInteraction() {
+
+    }
+
+    private val homeFragment: HomeFragment
+        get() {
+            var homeFragment: HomeFragment? = supportFragmentManager.findFragmentByTag("home") as HomeFragment?
+            if (homeFragment == null) {
+                homeFragment = HomeFragment.newInstance("", "")
+            }
+            return homeFragment
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +51,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
+        if(savedInstanceState == null){
+            addFragmentInActivity(homeFragment, "home")
+        }
+    }
+
+    private fun addFragmentInActivity(fragment: Fragment, tag: String) {
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.main_content, fragment, tag)
+            commit()
+        }
     }
 
     override fun onBackPressed() {

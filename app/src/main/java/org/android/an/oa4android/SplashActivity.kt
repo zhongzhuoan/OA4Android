@@ -48,14 +48,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private val mStartActivity2Runnable = Runnable {
-        val sp = getSharedPreferences("app", Context.MODE_PRIVATE)
-        val username = sp.getString("username", "")
-        val password = sp.getString("password", "")
-        if(username.isBlank() and password.isBlank()) {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }else{
-            startActivity(Intent(this, MainActivity::class.java))
-        }
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 
@@ -75,7 +68,15 @@ class SplashActivity : AppCompatActivity() {
         // while interacting with the UI.
         dummy_button.setOnTouchListener(mDelayHideTouchListener)
 
-        mHideHandler.postDelayed(mStartActivity2Runnable, 2000)
+        val sp = getSharedPreferences("app", Context.MODE_PRIVATE)
+        val username = sp.getString("username", "")
+        val password = sp.getString("password", "")
+        if((username == "admin") and (password == "123456")) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }else{
+            mHideHandler.postDelayed(mStartActivity2Runnable, 2000)
+        }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
