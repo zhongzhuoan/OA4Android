@@ -8,16 +8,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.android.an.oa4android.data.TargetContent
+import org.android.an.oa4android.dummy.DummyContent
 
 /**
- * 目标Fragment
+ *
  */
-class TargetsFragment : Fragment() {
+class DynamicFragment : Fragment() {
 
+    // TODO: Customize parameters
     private var columnCount = 1
 
-    lateinit var title: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +29,8 @@ class TargetsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_target, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_dynamic, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {
@@ -41,21 +38,21 @@ class TargetsFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = TargetAdapter(TargetContent.ITEMS)
-                (adapter as TargetAdapter).expandAll()
+                adapter = DynamicAdapter(DummyContent.ITEMS)
             }
         }
-
+        return view
     }
 
     companion object {
 
+        // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
 
+        // TODO: Customize parameter initialization
         @JvmStatic
-        fun newInstance(title: String, columnCount: Int) =
-                TargetsFragment().apply {
-                    this.title = title
+        fun newInstance(columnCount: Int) =
+                DynamicFragment().apply {
                     arguments = Bundle().apply {
                         putInt(ARG_COLUMN_COUNT, columnCount)
                     }
