@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     tools:layout_editor_absoluteX="16dp"
     tools:layout_editor_absoluteY="16dp">
 
@@ -17,7 +20,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:text="123"
+            android:text=""
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:text="123"
+            android:text=""
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintStart_toEndOf="@id/item_number"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,13 +43,13 @@
             android:layout_margin="@dimen/text_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/item_number"
-            app:layout_constraintTop_toBottomOf="@id/item_number" />
+            app:layout_constraintTop_toBottomOf="@id/content" />
 
         <TextView
             android:id="@+id/progress_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10%"
+            android:text=""
             app:layout_constraintStart_toStartOf="@id/progress_bar"
             app:layout_constraintTop_toBottomOf="@id/progress_bar" />
 
@@ -54,7 +57,7 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018"
+            android:text=""
             app:layout_constraintEnd_toEndOf="@id/progress_bar"
             app:layout_constraintTop_toBottomOf="@id/progress_bar" />
 

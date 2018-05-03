@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import org.android.an.oa4android.dummy.DummyContent
-import org.android.an.oa4android.dummy.DummyContent.DummyItem
+import org.android.an.oa4android.data.DummyContent.TargetItem
+import org.android.an.oa4android.data.TargetContent
 
 /**
  * 目标Fragment
@@ -46,7 +45,8 @@ class TargetsFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = TargetRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter = TargetAdapter(TargetContent.ITEMS)
+                (adapter as TargetAdapter).expandAll()
             }
         }
 
@@ -70,7 +70,7 @@ class TargetsFragment : Fragment() {
      *
      */
     interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: DummyItem?)
+        fun onListFragmentInteraction(item: TargetItem?)
     }
 
     companion object {
@@ -78,7 +78,7 @@ class TargetsFragment : Fragment() {
         const val ARG_COLUMN_COUNT = "column-count"
 
         @JvmStatic
-        fun newInstance(title:String, columnCount: Int) =
+        fun newInstance(title: String, columnCount: Int) =
                 TargetsFragment().apply {
                     this.title = title
                     arguments = Bundle().apply {

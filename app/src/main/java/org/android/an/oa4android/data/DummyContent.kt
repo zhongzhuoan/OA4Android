@@ -1,4 +1,4 @@
-package org.android.an.oa4android.dummy
+package org.android.an.oa4android.data
 
 import java.util.*
 
@@ -13,14 +13,14 @@ object DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    val ITEMS: MutableList<DummyItem> = ArrayList()
+    val ITEMS: MutableList<TargetItem> = ArrayList()
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    val ITEM_MAP: MutableMap<String, DummyItem> = HashMap()
+    val ITEM_MAP: MutableMap<String, TargetItem> = HashMap()
 
-    private val COUNT = 25
+    private val COUNT = 5
 
     init {
         // Add some sample items.
@@ -29,13 +29,13 @@ object DummyContent {
         }
     }
 
-    private fun addItem(item: DummyItem) {
+    private fun addItem(item: TargetItem) {
         ITEMS.add(item)
         ITEM_MAP.put(item.id, item)
     }
 
-    private fun createDummyItem(position: Int): DummyItem {
-        return DummyItem(position.toString(), "Item " + position, makeDetails(position))
+    private fun createDummyItem(position: Int): TargetItem {
+        return TargetItem(position.toString(), "Item " + position, makeDetails(position))
     }
 
     private fun makeDetails(position: Int): String {
@@ -50,7 +50,7 @@ object DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    data class DummyItem(val id: String, val content: String, val details: String) {
+    data class TargetItem(val id: String, val content: String, val details: String) {
         override fun toString(): String = content
     }
 }

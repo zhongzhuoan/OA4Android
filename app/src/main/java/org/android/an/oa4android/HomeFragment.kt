@@ -43,9 +43,9 @@ class HomeFragment : Fragment() {
 
 
         val fragments = ArrayList<TargetsFragment>()
-        fragments.add(TargetsFragment.newInstance("公司", 1))
-        fragments.add(TargetsFragment.newInstance("部门", 1))
-        fragments.add(TargetsFragment.newInstance("我的", 1))
+        fragments.add(TargetsFragment.newInstance("公司目标", 1))
+        fragments.add(TargetsFragment.newInstance("部门目标", 1))
+        fragments.add(TargetsFragment.newInstance("我的目标", 1))
 
         home_pager.adapter = MyPagerAdapter(childFragmentManager, fragments)
 

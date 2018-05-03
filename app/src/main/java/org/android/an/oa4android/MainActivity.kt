@@ -11,13 +11,13 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import org.android.an.oa4android.dummy.DummyContent
+import org.android.an.oa4android.data.DummyContent
 
 class MainActivity : AppCompatActivity(),
         NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
         TargetsFragment.OnListFragmentInteractionListener {
-    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+    override fun onListFragmentInteraction(item: DummyContent.TargetItem?) {
 
     }
 
