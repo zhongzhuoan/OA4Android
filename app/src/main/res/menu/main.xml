@@ -2,8 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/home"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="系统首页"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/password"
+        android:orderInCategory="100"
+        android:title="修改密码"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="退出"
         app:showAsAction="never" />
 </menu>
